@@ -2,15 +2,11 @@
   <div class="container header-container">
     
     <div class="logo">
-      <a href="#">
-        <img src="assets/Artjhulie-logo.jpg" alt="Logo ArtJhulie" class="logo-image">
+      <a href="#" (click)="closeMenu()">
+        <img src="assets/Artjhulie-logo.jpeg" alt="Logo ArtJhulie" class="logo-image">
         <span>ArtJhulie</span>
       </a>
     </div>
-
-    <button class="menu-hamburger" (click)="menuToggleRequest.emit()" aria-label="Abrir menu">
-      <i [class]="isMenuOpen ? 'fas fa-times' : 'fas fa-bars'"></i>
-    </button>
 
     <nav class="desktop-nav">
       <ul>
@@ -21,5 +17,40 @@
       </ul>
     </nav>
 
+    <button class="menu-hamburger" (click)="toggleMenu()" aria-label="Abrir menu">
+      <i [class]="isMenuOpen ? 'fas fa-times' : 'fas fa-bars'"></i>
+    </button>
+
   </div>
 </header>
+
+<nav class="mobile-nav-overlay" [class.menu-mobile-active]="isMenuOpen">
+  
+  <div class="mobile-menu-header">
+    <div class="logo-menu">
+      <img src="assets/Artjhulie-logo.jpeg" alt="Logo ArtJhulie" class="logo-image-menu">
+      <span>ArtJhulie</span>
+    </div>
+    <button class="close-button" (click)="closeMenu()" aria-label="Fechar menu">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+
+  <ul class="mobile-menu-links">
+    <li><a href="#sobre" (click)="closeMenu()"><i class="fas fa-user-circle"></i> Artista</a></li>
+    <li><a href="#loja" (click)="closeMenu()"><i class="fas fa-store"></i> ArtJhulie</a></li>
+    <li><a href="#trabalhos" (click)="closeMenu()"><i class="fas fa-palette"></i> Trabalhos</a></li>
+  </ul>
+
+  <div class="mobile-menu-footer">
+    <a href="#contato" (click)="closeMenu()" class="cta-button">
+      <i class="fas fa-paper-plane"></i> Faça um Orçamento
+    </a>
+    <div class="social-links">
+      <a href="https://www.instagram.com/artjhulie/" target="_blank" (click)="closeMenu()">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+    </div>
+  </div>
+  
+</nav>

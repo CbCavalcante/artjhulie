@@ -1,20 +1,27 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common'; // <-- IMPORTANTE!
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule // <-- ADICIONE AQUI (para usar [class] e *ngIf)
+  ],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
 export class Header {
   
-  // Recebe o estado do menu (para saber se mostra 'X' ou 'Barras')
-  @Input() isMenuOpen = false;
+  // A LÓGICA ESTÁ DE VOLTA!
+  isMenuOpen = false; // Estado inicial: menu fechado
 
-  // Emite um evento para o app.component pedindo para abrir/fechar
-  @Output() menuToggleRequest = new EventEmitter<void>();
+  // Função para abrir/fechar o menu pelo botão
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 
-  // Não precisamos de lógica de 'closeMenu' aqui
+  // Função para garantir que o menu feche ao clicar em um link
+  closeMenu() {
+    this.isMenuOpen = false;
+  }
 }

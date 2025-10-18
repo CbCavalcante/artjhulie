@@ -10,6 +10,6 @@ import { SobreLoja } from "../../components/sobre-loja/sobre-loja.component";
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class Home {
 
 }
