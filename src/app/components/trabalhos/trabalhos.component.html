@@ -1,27 +1,51 @@
-<section id="trabalhos" class="trabalhos-bg">
+<section id="trabalhos">
   <div class="container">
     <h2>Trabalhos</h2>
-    <div class="projetos-grid">
-      <div class="projeto-card">
-        <img [src]="artes[0].imagem" [alt]="artes[0].titulo" class="projeto-imagem">
-        <h4>Camisas</h4>
-        <p>Camisas "O amor é o nosso elo"</p>
+
+    <div class="trabalhos-grid" *ngIf="artes.length > 0">
+      
+      <div class="info-column">
+        
+        <div *ngFor="let arte of artes; let i = index" 
+             class="info-slide" 
+             [class.active]="i === activeSlideIndex">
+          
+          <h4>{{ arte.titulo }}</h4>
+          <p>{{ arte.descricao }}</p>
+        </div>
+
+        <div class="info-controls">
+          <div class="carousel-indicators-manual">
+            <span *ngFor="let arte of artes; let i = index"
+                  [class.active]="i === activeSlideIndex">
+            </span>
+          </div>
+          </div>
+
       </div>
-      <div class="projeto-card">
-        <img [src]="artes[1].imagem" [alt]="artes[1].titulo" class="projeto-imagem">
-        <h4>Pintura de Parede</h4>
-        <p>Projeto especial para loja @useyela</p>
+
+      <div class="carousel-column">
+        
+        <carousel [interval]="5000" 
+                  [showIndicators]="false" 
+                  (activeSlideChange)="onActiveSlideChange($event)">
+          
+          <slide *ngFor="let arte of artes">
+            <img [src]="arte.imagem" [alt]="arte.titulo" class="carousel-imagem">
+          </slide>
+        </carousel>
+
+        <div class="manual-arrows">
+          <button (click)="previousSlide()" aria-label="Slide anterior">
+            <i class="fas fa-arrow-left"></i>
+          </button>
+          <button (click)="nextSlide()" aria-label="Próximo slide">
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+
       </div>
-      <div class="projeto-card">
-      <img [src]="artes[2].imagem" [alt]="artes[2].titulo" class="projeto-imagem">
-        <h4>Ecobags</h4>
-        <p>Pintura especial feita a mão para o dia dos professores</p>
-      </div>
-      <div class="projeto-card">
-      <img [src]="artes[3].imagem" [alt]="artes[3].titulo" class="projeto-imagem">
-        <h4>Quadros</h4>
-        <p>Quadros pintados a mão com temática natalina</p>
-      </div>
+
     </div>
   </div>
 </section>

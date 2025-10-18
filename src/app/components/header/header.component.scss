@@ -2,19 +2,18 @@
   width: 100%;
   position: sticky;
   top: 0;
-  left: 0;
   z-index: 1000;
-  background-color: var(--cor-branco);
-  padding: 20px 0;
+  background-color: var(--cor-fundo-header);
+  padding: 8px 0;
   margin: 0;
   border-radius: 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid var(--cor-cinza-claro);
 }
 
 .header-container {
-  max-width: 960px;
+  max-width: 1100px;
+  width: 90%;
   margin: 0 auto;
-  padding: 0 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,17 +26,18 @@
 }
 
 .logo-image {
-  border-radius: 53%;     
-  max-height: 60px;       
+  border-radius: 53%;  
+  padding: 0 10px;   
+  max-height: 49px;       
   width: auto;
   display: block;
 }
 
 .logo span {
   font-weight: 700;       
-  font-size: large;         
+  font-size: 15px;         
   color: var(--cor-texto-titulo);
-  margin-left: 20px;      
+  margin-left: 10px;      
 }
 
 .desktop-nav {
@@ -68,24 +68,17 @@
       left: 0;
       width: 100%;
       height: 2px;
-      background-color: var(--cor-primaria);
+      background-color: var(--cor-secundaria);
     }
   }
 }
 
-/* --- Navegação Mobile (Overlay) --- */
 .mobile-nav-overlay {
-  display: none; // Esconde o menu mobile no desktop
+  display: none;
 }
 
-/* O botão hamburger fica escondido no desktop */
 .menu-hamburger {
   display: none;
-  background: none;
-  border: none;
-  color: var(--cor-texto-titulo);
-  font-size: 1.5rem;
-  cursor: pointer;
 }
 
 @media (max-width: 768px) {
@@ -95,9 +88,13 @@
   }
 
   .menu-hamburger {
-    margin-right: 20px;
     display: block; 
     z-index: 1002;
+    background: none;
+    border: none;
+    color: var(--cor-texto-titulo);
+    font-size: 1.5rem;
+    cursor: pointer;
   }
   
   .mobile-nav-overlay {
@@ -105,17 +102,15 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
-    
-    position: fixed; 
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh; 
-    background-color: rgba(255, 255, 255, 0.98); 
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(5px);
     z-index: 1001;
     padding: 20px;
-
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
   }
@@ -129,9 +124,8 @@
     justify-content: space-between;
     align-items: center;
     padding-bottom: 20px;
-    border-bottom: 1px solid var(--cor-cinza-claro); 
+    border-bottom: 1px solid var(--cor-cinza-claro);
   }
-
   .logo-menu {
     display: flex;
     align-items: center;
@@ -139,13 +133,11 @@
     color: var(--cor-texto-titulo);
     font-weight: 700;
   }
-
   .logo-image-menu {
     max-height: 45px;
     border-radius: 53%;
     margin-right: 10px;
   }
-
   .close-button {
     background: none;
     border: none;
@@ -153,44 +145,37 @@
     color: var(--cor-texto-corpo);
     cursor: pointer;
   }
-
   .mobile-menu-links {
     list-style: none;
     padding: 0;
     margin: 40px 0;
     flex-grow: 1;
   }
-
   .mobile-menu-links li {
     margin-bottom: 25px;
   }
-
   .mobile-menu-links a {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 500;
     color: var(--cor-texto-titulo);
     text-decoration: none;
     display: flex;
     align-items: center;
     gap: 15px;
-    
     i {
       width: 30px;
       text-align: center;
-      color: #F5CBCB;
+      color: var(--cor-terciaria);
     }
   }
-
-  /* 8. Footer do Menu (Botão e Social) */
   .mobile-menu-footer {
     text-align: center;
     padding-top: 20px;
-    border-top: 1px solid var(--cor-cinza-claro); 
+    border-top: 1px solid var(--cor-cinza-claro);
   }
-
   .cta-button {
     display: inline-block;
-    background-color: #F5CBCB;
+    background-color: var(--cor-terciaria);
     color: var(--cor-texto-titulo);
     padding: 15px 30px;
     border-radius: 30px;
@@ -198,24 +183,19 @@
     font-weight: 700;
     font-size: 1.1rem;
     transition: transform 0.2s ease;
-    
     i {
       margin-right: 10px;
     }
-    
     &:hover {
       transform: translateY(-2px);
     }
   }
-
   .social-links {
     margin-top: 30px;
-    
     a {
       font-size: 1.8rem;
       color: var(--cor-texto-corpo);
       margin: 0 15px;
-      
       &:hover {
         color: var(--cor-primaria);
       }

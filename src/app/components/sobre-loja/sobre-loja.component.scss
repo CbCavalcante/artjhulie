@@ -1,41 +1,51 @@
-// Importando as variáveis globais para usar as cores do projeto
-
-.loja-bg {
-  background-color: var(--cor-primaria); // Usa a mesma cor da seção "Trabalhos"
+#loja {
+  background-color: var(--cor-primaria);
 }
 
-.container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-h2 {
-    text-align: center;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 40px;
-    color: var(--cor-texto-titulo);
+.loja-card {
+  background: var(--cor-branco);
+  padding: 40px;
+  border-radius: var(--borda-raio);
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.08);
+  margin-top: 50px;
 }
 
 .loja-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 50px;
-  background-color: rgba(255, 255, 255, 0.5);
-  padding: 40px;
-  border-radius: var(--borda-raio);
+  align-items: flex-start;
+  margin: 0;
+}
 
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
+h2 {
+  font-weight: 500;
+  font-size: 1.1rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 60px;
+  color: #999;
+
+  position: relative;
+  padding-top: 20px;
+}
+
+h2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 2px;
+  background-color: var(--cor-secundaria); 
 }
 
 .loja-texto h3 {
-  color: var(--cor-texto-titulo);
   font-size: 1.5rem;
   margin-bottom: 15px;
+  font-weight: 700;
 }
 
 .loja-texto p {
@@ -44,9 +54,9 @@ h2 {
 }
 
 .servicos h4 {
-  color: var(--cor-texto-titulo);
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  color: var(--cor-texto-titulo);
 }
 
 .servicos-lista {
@@ -64,45 +74,51 @@ h2 {
   i {
     font-size: 1.2rem;
     color: var(--cor-texto-titulo);
-    margin-top: 5px;
+    margin-top: 3px;
   }
 
   strong {
     display: block;
     color: var(--cor-texto-titulo);
     margin-bottom: 4px;
+    font-weight: 700;
   }
 
   span {
     font-size: 0.9rem;
     line-height: 1.5;
+    color: var(--cor-texto-corpo);
   }
 }
 
 .cta-button {
   display: inline-block;
-  margin-top: 20px;
-  background-color: var(--cor-branco);
+  background: var(--cor-branco);
   color: var(--cor-texto-titulo);
-  text-decoration: none;
-  padding: 10px 25px;
+  padding: 12px 25px;
+  border-radius: 30px;
   font-weight: 700;
-  border-radius: var(--borda-raio);
-  box-shadow: var(--sombra-padrao);
-  transition: transform 0.2s ease;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--cor-cinza-claro);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-top: 10px;
 
   &:hover {
     transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
   }
 }
 
 @media (max-width: 768px) {
   .loja-content {
-    grid-template-columns: 1fr; // Muda de duas colunas para uma
-    gap: 30px;
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
-  
-  .loja-texto h3 {
-    font-size: 1.3rem;
+  .loja-card {
+    padding: 30px;
+  }
+  .loja-texto p{
+    text-align: justify;
   }
 }
