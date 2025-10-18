@@ -1,0 +1,17 @@
+<app-side-menu 
+  [isOpen]="isMenuOpen" 
+  (menuCloseRequest)="closeMenu()">
+</app-side-menu>
+
+<div class="pushable-content" [class.menu-open]="isMenuOpen">
+  
+  <app-header 
+    [isMenuOpen]="isMenuOpen" 
+    (menuToggleRequest)="toggleMenu()">
+  </app-header>
+
+  <router-outlet></router-outlet>
+
+  <app-footer></app-footer>
+
+</div>

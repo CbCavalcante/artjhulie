@@ -1,0 +1,25 @@
+<header class="header">
+  <div class="container header-container">
+    
+    <div class="logo">
+      <a href="#">
+        <img src="assets/Artjhulie-logo.jpg" alt="Logo ArtJhulie" class="logo-image">
+        <span>ArtJhulie</span>
+      </a>
+    </div>
+
+    <button class="menu-hamburger" (click)="menuToggleRequest.emit()" aria-label="Abrir menu">
+      <i [class]="isMenuOpen ? 'fas fa-times' : 'fas fa-bars'"></i>
+    </button>
+
+    <nav class="desktop-nav">
+      <ul>
+        <li><a href="#sobre">Artista</a></li>
+        <li><a href="#loja">ArtJhulie</a></li>
+        <li><a href="#trabalhos">Trabalhos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>

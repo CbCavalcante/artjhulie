@@ -1,0 +1,26 @@
+<section id="contato">
+  <div class="container contato-container">
+    <div class="form-wrapper">
+      <h3>Vamos criar algo incrível juntos!</h3>
+      
+      <form (ngSubmit)="enviarWhatsApp()">
+        
+        <label for="name">Seu Nome</label>
+        <input type="text" id="name" name="nome" [(ngModel)]="nome" required>
+
+        <label for="message">Sua Ideia / Proposta</label>
+        <textarea id="message" rows="4" name="mensagem" [(ngModel)]="mensagem" required></textarea>
+
+        <button type="submit">Enviar Proposta pelo WhatsApp</button>
+      </form>
+    </div>
+    <div class="social-wrapper">
+      <a href="https://www.instagram.com/artjhulie?igsh=MWh0M21yMW1raWxuZw==" target="_blank" class="social-icon instagram-icon">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+    </div>
+    <div class="text-socialmidia">
+      <p>Acesse nossa rede social</p>
+    </div>
+  </div>
+</section>

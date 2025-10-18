@@ -1,0 +1,108 @@
+/* Este arquivo agora contém APENAS os estilos de desktop e mobile
+   para o header em si. A lógica do menu foi removida.
+*/
+
+.header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: var(--cor-branco);
+  padding: 20px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.header-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Bloco da Logo (Imagem + Texto) */
+.logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo-image {
+  border-radius: 53%;
+  max-height: 60px;
+  width: auto;
+  display: block;
+}
+
+.logo span {
+  font-weight: 700;
+  font-size: large;
+  color: var(--cor-texto-titulo);
+  margin-left: 10px;
+}
+
+/* Navegação Desktop (esconde no mobile) */
+.desktop-nav {
+  display: block;
+}
+
+.desktop-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.desktop-nav a {
+  text-decoration: none;
+  color: var(--cor-texto-corpo);
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 5px;
+  &:hover {
+    color: var(--cor-texto-titulo);
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--cor-primaria);
+    }
+  }
+}
+
+/* Botão Hamburger (esconde no desktop) */
+.menu-hamburger {
+  display: none; // Escondido no desktop
+  background: none;
+  border: none;
+  color: var(--cor-texto-titulo);
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1002;
+}
+
+
+/* ===== MEDIA QUERY ===== */
+@media (max-width: 768px) {
+  
+  /* 1. Esconde a navegação de desktop */
+  .desktop-nav {
+    display: none;
+  }
+
+  /* 2. Faz o botão hamburger aparecer */
+  .menu-hamburger {
+    display: block; 
+  }
+
+  /* 3. Esconde o texto do logo */
+  .logo span {
+    display: none;
+  }
+}

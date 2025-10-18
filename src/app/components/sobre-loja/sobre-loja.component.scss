@@ -1,0 +1,108 @@
+// Importando as variáveis globais para usar as cores do projeto
+
+.loja-bg {
+  background-color: var(--cor-primaria); // Usa a mesma cor da seção "Trabalhos"
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    color: var(--cor-texto-titulo);
+}
+
+.loja-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 40px;
+  border-radius: var(--borda-raio);
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.loja-texto h3 {
+  color: var(--cor-texto-titulo);
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.loja-texto p {
+  line-height: 1.7;
+  color: var(--cor-texto-corpo);
+}
+
+.servicos h4 {
+  color: var(--cor-texto-titulo);
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.servicos-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.servicos-lista li {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 20px;
+
+  i {
+    font-size: 1.2rem;
+    color: var(--cor-texto-titulo);
+    margin-top: 5px;
+  }
+
+  strong {
+    display: block;
+    color: var(--cor-texto-titulo);
+    margin-bottom: 4px;
+  }
+
+  span {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: var(--cor-branco);
+  color: var(--cor-texto-titulo);
+  text-decoration: none;
+  padding: 10px 25px;
+  font-weight: 700;
+  border-radius: var(--borda-raio);
+  box-shadow: var(--sombra-padrao);
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 768px) {
+  .loja-content {
+    grid-template-columns: 1fr; // Muda de duas colunas para uma
+    gap: 30px;
+  }
+  
+  .loja-texto h3 {
+    font-size: 1.3rem;
+  }
+}

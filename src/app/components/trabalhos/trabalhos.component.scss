@@ -1,0 +1,52 @@
+.trabalhos-bg {
+  background-color: var(--cor-primaria);
+}
+
+h2 {
+  text-align: center;
+}
+
+.projetos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+}
+
+.projeto-card {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 35px;
+  border-radius: var(--borda-raio);
+  text-align: center;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.projeto-imagem {
+  width: 100%;
+  height: 145px;
+  background-color: var(--cor-cinza-claro);
+  border-radius: calc(var(--borda-raio) - 5px);
+  margin-bottom: 15px;
+  object-fit: cover;
+}
+
+.projeto-card h4 {
+  color: var(--cor-texto-titulo);
+  margin-bottom: 5px;
+}
+
+.projeto-card p {
+  font-size: 0.9rem;
+  color: var(--cor-texto-corpo);
+}
+
+@media (max-width: 500px) {
+  .projeto-card {
+    max-width: 320px;
+    justify-self: center;
+  }
+
+}

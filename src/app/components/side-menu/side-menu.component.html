@@ -1,0 +1,14 @@
+<nav *ngIf="isOpen" class="side-menu-container">
+  <ul>
+    <li><a href="#sobre" (click)="closeMenu()">Artista</a></li>
+    <li><a href="#loja" (click)="closeMenu()">ArtJhulie</a></li>
+    <li><a href="#trabalhos" (click)="closeMenu()">Trabalhos</a></li>
+    <li><a href="#contato" (click)="closeMenu()">Contato</a></li>
+  </ul>
+  
+  <div class="menu-footer">
+    <a href="#contato" (click)="closeMenu()" class="menu-cta-button">
+      Faça um Orçamento
+    </a>
+  </div>
+</nav>
