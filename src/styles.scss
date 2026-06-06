@@ -1,18 +1,23 @@
-/* ===== 1. IMPORTAÇÃO DA FONTE (Mantém) ===== */
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
-/* ===== 2. VARIÁVEIS GLOBAIS (Mantém) ===== */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;500;600;700&display=swap&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet');
+
 :root {
-  --cor-primaria: #F6EFCF;
-  --cor-secundaria: #F9B487;
-  --cor-terciaria: #C9B59C;
-  --cor-fundo-trabalhos: #F5F5F0;
-  --cor-fundo: #F8F8F7;
-  --cor-texto-titulo: #6e6868;
-  --cor-texto-corpo: #555555;
+  /* --- CORES --- */
+  --cor-primaria: #F1F0E8;
+  --cor-secundaria: #A68A7B;
+  --cor-terciaria: #F3D768;
+  --cor-fundo-trabalhos: #F7F4EC;
+  --cor-fundo: #ece5d8;
+  --cor-texto-titulo: #433E38;
+  --cor-texto-corpo: #7A746E;
   --cor-branco: #FFFFFF;
-  --cor-fundo-header: #F5F1E6;
-  --cor-cinza-claro: #EAEAEA;
-  --cor-borda-flexas: #CCC;
+  --cor-fundo-header: #E5E1DA;
+  --cor-cinza-claro: rgba(0, 0, 0, 0.08);
+  --cor-borda-flexas: #D4D0C8;
+  
+  --fonte-corpo: 'Lato', sans-serif;
+  --fonte-titulos: 'Playfair Display', serif;
+  --fonte-slide: 'Montserrat', sans-serif;
+
   --borda-raio: 12px;
 }
 
@@ -23,14 +28,15 @@
 }
 
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: var(--fonte-corpo);
   font-size: 16px;
-  background-color: var(--cor-branco);
+  background-color: var(--cor-fundo); 
   color: var(--cor-texto-corpo);
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4 {
+  font-family: var(--fonte-titulos);
   color: var(--cor-texto-titulo);
   font-weight: 500;
 }

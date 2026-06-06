@@ -1,0 +1,39 @@
+<section class="fundo-namorados">
+  <div class="container namorados-section">
+    
+    <div class="namorados-text">
+      <h2 class="section-title">Especial Dia dos Namorados</h2>
+      <h3>Surpreenda o seu amor com a nova coleção <span class="destaque-colecao">BEM</span> para o dia dos namorados</h3>
+      <p>
+        Celebre o amor com presentes únicos e cheios de significado. 
+        Nesta coleção especial, reunimos artes exclusivas que capturam a essência de momentos inesquecíveis. 
+        Navegue pelo nosso carrossel para descobrir opções perfeitas para eternizar o seu carinho.
+      </p>
+      <a href="#contato" class="btn-reservar">Garantir Presente</a>
+    </div>
+
+    <div class="namorados-carousel">
+      <div class="carousel-track" [style.transform]="'translateX(-' + slideAtual * 100 + '%)'">
+        <div class="carousel-slide" *ngFor="let produto of produtos">
+          
+          <div class="produto-info">
+            <h4>{{ produto.nome }}</h4>
+            <p>{{ produto.descricao }}</p>
+          </div>
+          <img [src]="produto.imagem" [alt]="produto.alt" />
+        </div>
+      </div>
+
+      <button class="nav-btn prev" (click)="slideAnterior()" aria-label="Slide anterior">&#10094;</button>
+      <button class="nav-btn next" (click)="proximoSlide()" aria-label="Próximo slide">&#10095;</button>
+
+      <div class="carousel-dots">
+        <button 
+          *ngFor="let dot of produtos; let i = index" 
+          class="dot" [class.active]="i === slideAtual" (click)="irParaSlide(i)" [attr.aria-label]="'Ir para o slide ' + (i + 1)">
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>

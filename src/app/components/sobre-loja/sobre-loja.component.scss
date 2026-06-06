@@ -1,32 +1,33 @@
 #loja {
   background-color: var(--cor-primaria);
+  padding: 80px 0;
 }
 
-.loja-card {
-  background: var(--cor-branco);
-  padding: 40px;
-  border-radius: var(--borda-raio);
-  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.08);
-  margin-top: 50px;
+loja-card {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  margin-top: 30px;
 }
 
 .loja-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 50px;
+  gap: 80px;
   align-items: flex-start;
   margin: 0;
 }
 
 h2 {
   font-weight: 500;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
+  font-family: var(--fonte-slide);
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 3px;
   margin-bottom: 60px;
   color: #999;
-
   position: relative;
   padding-top: 20px;
 }
@@ -39,53 +40,71 @@ h2::before {
   transform: translateX(-50%);
   width: 50px;
   height: 2px;
-  background-color: var(--cor-secundaria); 
+  background-color: #9F5255; 
 }
 
-.loja-texto h3 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-  font-weight: 700;
+.loja-texto {
+  order: 2;
+  
+  h3 {
+    font-size: 3.2rem;
+    color: var(--cor-texto-titulo);
+    font-family: var(--fonte-slides);
+    line-height: 1.1;
+    margin-bottom: 25px;
+    font-weight: 400;
+  }
+  
+  p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--cor-texto-corpo);
+    text-align: justify;
+  }
 }
 
-.loja-texto p {
-  line-height: 1.7;
-  color: var(--cor-texto-corpo);
-}
-
-.servicos h4 {
-  font-weight: 700;
-  margin-bottom: 25px;
-  color: var(--cor-texto-titulo);
+.servicos {
+  order: 1;
+  
+  h4 {
+    font-size: 2.2rem; 
+    color: #A68A7B;
+    font-family: var(--fonte-slides);
+    font-weight: 500;
+    margin-bottom: 30px;
+  }
 }
 
 .servicos-lista {
   list-style: none;
   padding: 0;
   margin: 0;
+  margin-bottom: 40px;
 }
 
 .servicos-lista li {
   display: flex;
   align-items: flex-start;
   gap: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 
   i {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: var(--cor-texto-titulo);
-    margin-top: 3px;
+    margin-top: 2px;
   }
 
   strong {
     display: block;
     color: var(--cor-texto-titulo);
-    margin-bottom: 4px;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
     font-weight: 700;
+    font-family: var(--fonte-corpo);
   }
 
   span {
-    font-size: 0.9rem;
+    font-size: 1rem;
     line-height: 1.5;
     color: var(--cor-texto-corpo);
   }
@@ -93,32 +112,95 @@ h2::before {
 
 .cta-button {
   display: inline-block;
-  background: var(--cor-branco);
+  background: transparent;
   color: var(--cor-texto-titulo);
-  padding: 12px 25px;
+  padding: 12px 32px;
   border-radius: 30px;
-  font-weight: 700;
+  font-family: var(--fonte-corpo);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   text-decoration: none;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  border: 1px solid var(--cor-cinza-claro);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid var(--cor-texto-titulo);
+  transition: all 0.3s ease;
   margin-top: 10px;
 
   &:hover {
+    background-color: var(--cor-texto-titulo);
+    color: var(--cor-branco);
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
   }
 }
 
 @media (max-width: 768px) {
   .loja-content {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 60px;
   }
+  
   .loja-card {
-    padding: 30px;
+    padding: 0 20px;
   }
-  .loja-texto p{
-    text-align: justify;
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .loja-texto {
+    order: 1; 
+    
+    h3 {
+      font-size: 1.5rem;
+      text-align: left;
+    }
+  }
+
+  .servicos {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    h4 {
+      text-align: center;
+    }
+
+    .servicos-lista li {
+      position: relative; /* Necessário para o efeito de fundo */
+      padding: 15px 20px;
+      border-radius: 12px;
+      transition: all 0.4s ease; /* Suaviza a animação */
+      overflow: hidden; /* Garante que o efeito não saia das bordas do card */
+      cursor: pointer;
+      background: transparent; /* Começa transparente */
+      
+      /* Efeito de preenchimento ao passar o mouse */
+      &:hover {
+        background-color: rgba(166, 138, 123, 0.1); /* Cor suave (use a cor do seu destaque) */
+        transform: translateX(10px); /* Move levemente para a direita dando sensação de toque */
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Sombra suave ao passar o mouse */
+      }
+
+      /* Caso queira uma borda animada no preenchimento */
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 4px;
+        background-color: var(--cor-secundaria); /* A cor de destaque do seu site */
+        transform: scaleY(0); /* Começa invisível */
+        transition: transform 0.3s ease;
+      }
+
+      &:hover::before {
+        transform: scaleY(1); /* Expande de cima para baixo */
+      }
+    }
+
+    .cta-button {
+      align-self: center;
+    }
   }
 }

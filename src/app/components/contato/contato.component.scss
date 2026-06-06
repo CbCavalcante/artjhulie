@@ -1,25 +1,21 @@
-/* src/app/components/contato/contato.component.scss */
-
-/* Usamos um cinza bem claro para o fundo, sinalizando o fim da página */
 section {
-  background-color: var(--cor-fundo);
+  background-color: var(--cor-primaria);
 }
 
 .contato-container {
     text-align: center;
-    /* Centraliza o bloco de contato */
     max-width: 600px;
     margin: 0 auto;
 }
 
 h3 {
     margin-bottom: 30px;
-    font-size: 1.8rem;
+    font-size: 2.8rem;
+    font-family: var(--fonte-slides);
+    color: #A68A7B;
     font-weight: 500;
 }
 
-/* ... (O restante do seu CSS de formulário e ícones sociais
-   pode continuar o mesmo, pois já é limpo e funcional) ... */
 form {
   max-width: 500px;
   margin: 0 auto;
@@ -27,6 +23,7 @@ form {
 }
 label {
   display: block;
+  color: var(--cor-texto-titulo);
   margin-bottom: 8px;
   font-size: 0.9rem;
   font-weight: 500;
@@ -34,34 +31,36 @@ label {
 input, textarea {
   width: 100%;
   padding: 12px;
-  border: 1px solid var(--cor-cinza-claro);
-  border-radius: 6px; /* Um pouco mais sutil */
+  border: 1px solid #C7C8CC;
+  border-radius: 6px;
   margin-bottom: 20px;
   font-family: 'Poppins', sans-serif;
   font-size: 1rem;
-  background-color: var(--cor-branco);
+  background-color: var(--cor-primaria);
   transition: box-shadow 0.3s ease;
   &:focus {
     outline: none;
     box-shadow: 0 0 0 3px rgba(246, 239, 207, 0.8);
   }
 }
-button {
-  background-color: var(--cor-primaria);
-  color: var(--cor-texto-titulo);
-  border: none;
-  padding: 12px 30px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  border-radius: 30px; /* Arredondado */
-  cursor: pointer;
-  box-shadow: none; /* Mais limpo */
-  transition: transform 0.2s ease;
-  &:hover {
-    transform: translateY(-2px);
+  .btn-reservar {
+    align-self: flex-start;
+    background-color: var(--cor-texto-titulo);
+    color: var(--cor-branco);
+    padding: 14px 32px;
+    border-radius: var(--borda-raio);
+    font-family: var(--fonte-slide);
+    font-size: 1.1rem;
+    text-decoration: none; 
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    
+    &:hover {
+      background-color: #A68A7B; 
+      border-color: #A68A7B;
+      color: var(--cor-branco);
+    }
   }
-}
+  
 .social-wrapper {
   margin-top: 40px;
   display: flex;
@@ -86,5 +85,20 @@ button {
   &.instagram-icon:hover {
     background: none;
     color: #d6249f;
+  }
+}
+
+@media (max-width: 600px) {
+  h3 {
+    font-size: 2.2rem; /* Título um pouco menor no celular */
+  }
+
+  form {
+    padding: 0 10px; /* Garante que os inputs não fiquem colados na tela */
+  }
+
+  .btn-reservar {
+    width: 100%; /* Botão ocupa a largura toda no mobile, facilita o clique */
+    text-align: center;
   }
 }

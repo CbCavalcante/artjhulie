@@ -1,5 +1,12 @@
 .footer {
-  background-color: var(--cor-primaria);
+  display: block;
+  width: 100%;
+  background: linear-gradient(
+    to bottom, 
+    var(--cor-fundo) 0%, 
+    var(--cor-fundo-header) 40%, 
+    var(--cor-fundo-header) 100%
+  );
   padding: 50px 20px;
 }
 

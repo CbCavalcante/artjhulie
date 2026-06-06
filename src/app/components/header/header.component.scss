@@ -1,18 +1,21 @@
 .header {
-  width: 100%;
-  position: sticky;
-  top: 0;
+  width: 90%; 
+  max-width: 1100px;
+  position: fixed;
+  top: 20px; 
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   z-index: 1000;
-  background-color: var(--cor-fundo-header);
-  padding: 8px 0;
-  margin: 0;
-  border-radius: 0;
-  border-bottom: 1px solid var(--cor-cinza-claro);
+  background-color: var(--cor-primaria);
+  padding: 10px 30px; 
+  border-radius: 50px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); 
+  border: 1px solid rgba(0, 0, 0, 0.05); 
 }
 
 .header-container {
-  max-width: 1100px;
-  width: 90%;
+  width: 100%; 
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -26,9 +29,10 @@
 }
 
 .logo-image {
-  border-radius: 53%;  
-  padding: 0 10px;   
-  max-height: 49px;       
+  border-radius: 50%; 
+  padding: 0;
+  margin-right: 10px;
+  max-height: 40px;      
   width: auto;
   display: block;
 }
@@ -37,7 +41,6 @@
   font-weight: 700;       
   font-size: 15px;         
   color: var(--cor-texto-titulo);
-  margin-left: 10px;      
 }
 
 .desktop-nav {
@@ -68,7 +71,7 @@
       left: 0;
       width: 100%;
       height: 2px;
-      background-color: var(--cor-secundaria);
+      background-color: var(--cor-terciaria);
     }
   }
 }
@@ -81,8 +84,17 @@
   display: none;
 }
 
+/* --- RESPONSIVIDADE (MOBILE) --- */
 @media (max-width: 768px) {
   
+  .header {
+    /* No mobile, deixamos ele um pouco mais largo e com menos margem para otimizar espaço */
+    width: 95%;
+    margin: 10px auto;
+    top: 10px;
+    padding: 10px 20px;
+  }
+
   .desktop-nav {
     display: none;
   }
@@ -126,6 +138,7 @@
     padding-bottom: 20px;
     border-bottom: 1px solid var(--cor-cinza-claro);
   }
+  
   .logo-menu {
     display: flex;
     align-items: center;
@@ -133,11 +146,13 @@
     color: var(--cor-texto-titulo);
     font-weight: 700;
   }
+  
   .logo-image-menu {
     max-height: 45px;
-    border-radius: 53%;
+    border-radius: 50%;
     margin-right: 10px;
   }
+  
   .close-button {
     background: none;
     border: none;
@@ -145,15 +160,18 @@
     color: var(--cor-texto-corpo);
     cursor: pointer;
   }
+  
   .mobile-menu-links {
     list-style: none;
     padding: 0;
     margin: 40px 0;
     flex-grow: 1;
   }
+  
   .mobile-menu-links li {
     margin-bottom: 25px;
   }
+  
   .mobile-menu-links a {
     font-size: 1.8rem;
     font-weight: 500;
@@ -165,17 +183,19 @@
     i {
       width: 30px;
       text-align: center;
-      color: var(--cor-terciaria);
+      color: var(--cor-secundaria);
     }
   }
+  
   .mobile-menu-footer {
     text-align: center;
     padding-top: 20px;
     border-top: 1px solid var(--cor-cinza-claro);
   }
+  
   .cta-button {
     display: inline-block;
-    background-color: var(--cor-terciaria);
+    background-color: var(--cor-secundaria);
     color: var(--cor-texto-titulo);
     padding: 15px 30px;
     border-radius: 30px;
@@ -190,6 +210,7 @@
       transform: translateY(-2px);
     }
   }
+  
   .social-links {
     margin-top: 30px;
     a {

@@ -1,124 +1,161 @@
 section {
   position: relative;
   overflow: hidden;
-  padding-bottom: 180px;
-  background-image: url('../../../assets/background.jpg');
+  padding-bottom: 120px;
+  background-color: var(--cor-primaria); /* Idealmente um bege bem claro/quente */
   background-size: cover;
   background-position: center center;
-  background-repeat: no-repeat; 
+  background-repeat: no-repeat;
+  z-index: 1;
 }
 
-section::after {
+/* Transformando o bloco inferior rígido em uma onda/curva orgânica */
+section::before {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 100px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100' fill='%23F6EFCF'%3E%3Cpath d='M0,100 C480,0 960,0 1440,100 L1440,100 L0,100 Z'%3E%3C/path%3E%3C/svg%3E");
-  
-  background-repeat: no-repeat;
-  background-size: 100% 100%; 
+  height: 8%; /* Aumentado um pouco para a curva respirar */
+  background-color: var(--cor-fundo); 
+  /* Cria uma curva suave no topo do bloco */
+  border-top-left-radius: 50% 20%;
+  border-top-right-radius: 50% 20%;
+  z-index: -1; 
 }
 
 .sobre-content {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 50px;
-  max-width: 800px;
+  gap: 60px;
+  max-width: 1100px; 
   margin: 0 auto;
+  padding: 0 20px;
 }
 
+/* --- IMAGEM --- */
 img {
-  width: 200px; 
-  height: 200px;
-  border-radius: 50%;
+  width: 100%; 
+  max-width: 500px; 
+  height: 550px; 
   object-fit: cover;
+  margin: 50px auto;
+  
+  /* Borda assimétrica para um look moderno e artístico */
+  border-radius: 20px 80px 20px 20px; 
+  /* Sombra suave para dar profundidade */
+  box-shadow: 0 15px 35px rgba(112, 59, 59, 0.15);
+  /* Linha de contorno sutil */
+  border: 1px solid rgba(159, 82, 85, 0.3);
+  box-shadow: 0 15px 35px #735557; 
 }
 
+/* --- TEXTOS --- */
 .sobre-texto h2 {
+  font-family: var(--fonte-slides); 
   font-weight: 500;
-  font-size: 1.1rem;
+  font-size: 3.5rem; 
   text-align: left;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  margin-bottom: 60px;
-  color: #999;
-
+  text-transform: none; 
+  letter-spacing: normal;
+  margin-bottom: 15px;
+  color: var(--cor-texto-titulo);
   position: relative;
-  padding-top: 20px;
+  padding-top: 0;
+}
+
+/* Linha abaixo do título - deixada mais delicada */
+.sobre-texto h2::after {
+  content: '';
+  display: block;
+  width: 60px; /* Levemente menor */
+  height: 2px; /* Mais fina para combinar com a elegância da fonte */
+  background-color: #9F5255; /* Usando o tom de destaque */
+  margin-top: 20px; 
 }
 
 .sobre-texto h2::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 100%;
-  transform: translateX(-50%);
-  width: 50px;
-  height: 2px;
-  background-color: var(--cor-secundaria); 
+  display: none; 
 }
 
 .sobre-texto h3 {
-  font-size: 1.7rem;
+  font-family: var(--fonte-slides);
+  font-size: 1.4rem;
   line-height: 1.4;
   margin-bottom: 15px;
-  font-weight: 500;
+  font-weight: 700;
+  color: #9F5255;
+  text-align: left;
 }
 
 .sobre-texto p {
-  font-size: 1rem;
-  line-height: 1.7;
+  /* É bom garantir que o corpo do texto seja uma fonte sem-serifa limpa (ex: Roboto, Montserrat) */
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: left; 
+  margin-bottom: 2rem;
+  color: var(--cor-texto-corpo);
 }
 
+/* --- MOBILE --- */
 @media (max-width: 768px) {
-
-  section::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 28px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100' fill='%23F6EFCF'%3E%3Cpath d='M0,100 C480,0 960,0 1440,100 L1440,100 L0,100 Z'%3E%3C/path%3E%3C/svg%3E");
-  
-  background-repeat: no-repeat;
-  background-size: 100% 100%; 
-}
+  section::before {
+    height: 5%; 
+    /* Ajusta a curva para telas menores */
+    border-top-left-radius: 50% 15%;
+    border-top-right-radius: 50% 15%;
+  }
 
   .sobre-content {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     text-align: center;
-    gap: 30px;
+    gap: 40px;
+  }
+
+  img {
+    order: 1;
+    width: 80%;
+    height: auto;
+    aspect-ratio: 4 / 5; /* Mantém a proporção de retrato no mobile sem distorcer */
+    max-width: 300px;
+    margin-top: 2rem;
+    margin-bottom: 5px;
+    border-radius: 15px 50px 15px 15px; /* Reduzindo um pouco o efeito no mobile */
+    box-shadow: 0 15px 35px #735557; 
+
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
+    &:active, &:hover {
+      transform: scale(1.03) translateY(-5px); 
+      box-shadow: 0 15px 35px #896C6C; 
+    }
   }
 
   .sobre-texto {
+    order: 2;
+    margin-top: 0.8rem;
     margin-bottom: 0;
   }
   
   .sobre-texto h2 {
+    font-size: 2.8rem;
     text-align: center;
   }
 
-  .sobre-texto h2::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 2px;
-    background-color: var(--cor-secundaria); 
+  .sobre-texto h2::after {
+    margin: 15px auto 0 auto; 
   }
 
   .sobre-texto h3 {
-    text-align: justify;
-    margin: 30px 31px;
+    text-align: center;
+    text-align: left;
+    font-size: 1.3rem;
+    margin: 20px 0;
   }
 
   .sobre-texto p {
+    text-align: center;
     text-align: justify;
-    margin: 0 31px;;
+    margin: 0;
   }
 }

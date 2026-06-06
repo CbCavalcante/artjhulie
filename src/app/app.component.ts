@@ -1,10 +1,7 @@
-// src/app/app.component.ts
-
 import { Component, OnInit } from '@angular/core'; 
 import { RouterOutlet } from '@angular/router';
 import { Header } from './components/header/header.component';
 import { Footer } from './components/footer/footer.component';
-// REMOVEMOS O SideMenuComponent
 import { CommonModule, ViewportScroller } from '@angular/common'; 
 import { Router, NavigationEnd } from '@angular/router'; 
 import { filter } from 'rxjs'; 

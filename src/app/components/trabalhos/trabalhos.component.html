@@ -1,51 +1,38 @@
 <section id="trabalhos">
-  <div class="container">
-    <h2>Trabalhos</h2>
+  <h2>Trabalhos</h2>
+  
+  <div class="container trabalhos-grid">
+    
+    <div class="info-column">
+      <div class="info-slide" *ngFor="let arte of artes; let i = index" [class.active]="i === slideAtual">
+        <h4>{{ arte.titulo }}</h4>
+        <h5 [innerHTML]="arte.subtitulo" class="subtitulo-arte"></h5>
+        <p>{{ arte.descricao }}</p>
+        <a href="#contato" class="btn-reservar">Fazer Pedido</a>
+      </div>
+    </div>
 
-    <div class="trabalhos-grid" *ngIf="artes.length > 0">
+    <div class="carousel-column" (mouseenter)="pararCarrosselAutomatico()" (mouseleave)="iniciarCarrosselAutomatico()">
       
-      <div class="info-column">
-        
-        <div *ngFor="let arte of artes; let i = index" 
-             class="info-slide" 
-             [class.active]="i === activeSlideIndex">
-          
-          <h4>{{ arte.titulo }}</h4>
-          <p>{{ arte.descricao }}</p>
+      <div class="carousel-track" [style.transform]="'translateX(-' + slideAtual * 100 + '%)'">
+        <div class="carousel-slide-img" *ngFor="let arte of artes">
+          <img [src]="arte.imagem" [alt]="arte.titulo">
         </div>
-
-        <div class="info-controls">
-          <div class="carousel-indicators-manual">
-            <span *ngFor="let arte of artes; let i = index"
-                  [class.active]="i === activeSlideIndex">
-            </span>
-          </div>
-          </div>
-
       </div>
 
-      <div class="carousel-column">
-        
-        <carousel [interval]="5000" 
-                  [showIndicators]="false" 
-                  (activeSlideChange)="onActiveSlideChange($event)">
-          
-          <slide *ngFor="let arte of artes">
-            <img [src]="arte.imagem" [alt]="arte.titulo" class="carousel-imagem">
-          </slide>
-        </carousel>
+      <button class="nav-btn prev" (click)="slideAnterior()" aria-label="Anterior">&#10094;</button>
+      <button class="nav-btn next" (click)="proximoSlide()" aria-label="Próximo">&#10095;</button>
 
-        <div class="manual-arrows">
-          <button (click)="previousSlide()" aria-label="Slide anterior">
-            <i class="fas fa-arrow-left"></i>
-          </button>
-          <button (click)="nextSlide()" aria-label="Próximo slide">
-            <i class="fas fa-arrow-right"></i>
-          </button>
-        </div>
-
+      <div class="carousel-dots">
+        <span 
+          *ngFor="let dot of artes; let i = index" 
+          class="dot"
+          [class.active]="i === slideAtual" 
+          (click)="irParaSlide(i)">
+        </span>
       </div>
 
     </div>
+
   </div>
 </section>

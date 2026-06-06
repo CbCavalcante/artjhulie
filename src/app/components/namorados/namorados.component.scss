@@ -1,0 +1,261 @@
+.fundo-namorados {
+  display: block;
+  width: 100%;
+  background: linear-gradient(
+    to bottom, 
+    var(--cor-fundo) 0%, 
+    var(--cor-fundo-header) 40%, 
+    var(--cor-fundo-header) 100%
+  );
+}
+
+.namorados-section {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr; 
+  gap: 60px;
+  align-items: center;
+  padding: 20px 0 80px 0; 
+}
+
+.namorados-text {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; 
+  padding-right: 40px; 
+
+  .section-title {
+    margin-bottom: 5px;
+    text-align: left;
+    font-size: 3rem;
+    color: #A68A7B; 
+    letter-spacing: 3px;
+    font-weight: 600;
+    font-family: var(--fonte-slide);
+  }
+
+h3 {
+    font-size: 2.4rem; 
+    color: var(--cor-texto-titulo); 
+    line-height: 1.2;
+    font-family: var(--fonte-corpo);
+
+    .destaque-colecao {
+      color: #A68A7B;
+      font-family: var(--fonte-corpo);
+      font-weight: 600;
+    }
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--cor-texto-corpo); 
+    margin-bottom: 25px;
+  }
+
+  .btn-reservar {
+    align-self: flex-start;
+    background-color: var(--cor-texto-titulo);
+    color: var(--cor-branco);
+    padding: 14px 32px;
+    border-radius: var(--borda-raio);
+    font-family: var(--fonte-slide);
+    font-size: 1.1rem;
+    text-decoration: none; 
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    
+    &:hover {
+      background-color: #A68A7B; 
+      color: var(--cor-branco);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+/* --- ESTILOS DO CARROSSEL (Direita) --- */
+.namorados-carousel {
+  position: relative;
+  width: 85%; 
+  margin: 0 auto; 
+  overflow: hidden;
+  border-radius: 16px; 
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08); 
+  aspect-ratio: 4 / 5;
+  display: flex; 
+
+  .carousel-track {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); 
+  }
+
+  .carousel-slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FAFAFA; 
+    
+    /* EFEITO GLASSMORPHISM PARA NOME E DESCRIÇÃO */
+    .produto-info {
+      position: absolute;
+      top: 15px; 
+      left: 15px;
+      right: 15px;
+      background: var(--cor-fundo-header);
+      backdrop-filter: blur(12px); 
+      -webkit-backdrop-filter: blur(12px); 
+      padding: 12px 20px;
+      border-radius: 12px;
+      text-align: center;
+      z-index: 1; 
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      opacity: 0.5;
+
+      h4 {
+        color: var(--cor-texto-titulo);
+        font-size: 1.15rem;
+        margin-bottom: 4px;
+        font-family: var(--fonte-slide);
+        font-weight: 600;
+        letter-spacing: 1px;
+      }
+
+      p {
+        color: var(--cor-texto-titulo); 
+        font-size: 0.85rem;
+        margin: 0;
+        font-weight: 400;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  /* Botões de Navegação */
+  .nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); 
+    background-color: rgba(255, 255, 255, 0.85); 
+    color: var(--cor-texto-titulo);
+    border: none;
+    width: 40px; 
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 2;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+
+    &:hover {
+      background-color: var(--cor-texto-titulo);
+      color: var(--cor-branco);
+      transform: translateY(-50%) scale(1.05); 
+    }
+
+    &.prev {
+      left: 15px;
+    }
+
+    &.next {
+      right: 15px;
+    }
+  }
+
+  /* Indicadores */
+  .carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 2;
+    background-color: rgba(0,0,0,0.15); 
+    padding: 6px 12px;
+    border-radius: 20px;
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: none;
+      background-color: rgba(255,255,255,0.6);
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &.active {
+        background-color: var(--cor-branco);
+        transform: scale(1.2);
+      }
+    }
+  }
+}
+
+/* --- RESPONSIVIDADE PARA DISPOSITIVOS MÓVEIS --- */
+@media (max-width: 850px) {
+  .namorados-section {
+    display: flex; 
+    flex-direction: column; 
+    gap: 25px; 
+    padding: 0 25px 0 25px;
+  }
+
+  .namorados-text {
+    display: contents; 
+
+    .section-title {
+      order: 1;
+      text-align: center;
+      font-size: 2rem;
+      letter-spacing: 2px;
+      margin-top: 40px;
+    }
+
+    h3 {
+      order: 2;
+      font-size: 1.5rem;
+      padding: 0 10px;
+      margin-bottom: 5px;
+      text-align: justify;
+    }
+
+    p {
+      order: 3;
+      font-size: 1rem;
+      padding: 0 10px;
+      text-align: justify;
+      margin-bottom: 10px;
+    }
+
+    .btn-reservar {
+      order: 4;
+      align-self: left;
+      margin-left: 10px;
+      padding: 12px 18px;
+      font-size: 1rem;
+    }
+  }
+
+  .namorados-carousel {
+    order: 5;
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 1 / 1; 
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 15px 35px #735557; 
+  }
+}
